@@ -1,0 +1,9 @@
+= simple_form_for @instrutor, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :nome
+  = f.error_span :nome
+  = f.input :email
+  = f.error_span :email
+  = f.input :profissao
+  = f.error_span :profissao
+  = f.button :submit, :class => 'btn-primary'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), instrutores_path, :class => 'btn btn-default'

@@ -1,0 +1,1 @@
+json.partial! "instrutores/instrutor", instrutor: @instrutor
