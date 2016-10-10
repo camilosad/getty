@@ -1,0 +1,41 @@
+.nested-fields
+  = f.input :dinamica, as: :boolean
+  / = f.input :semana, as: :date_picker
+  .row
+    .col-md-6
+      = f.input :monday_start
+    .col-md-6
+      = f.input :monday_end
+  .row
+    .col-md-6
+      = f.input :tuesday_start
+    .col-md-6
+      = f.input :tuesday_end
+  .row
+    .col-md-6
+      = f.input :wednesday_start
+    .col-md-6
+      = f.input :wednesday_end
+  .row
+    .col-md-6
+      = f.input :thursday_start
+    .col-md-6
+      = f.input :thursday_end
+  .row
+    .col-md-6
+      = f.input :friday_start
+    .col-md-6
+      = f.input :friday_end
+  .row
+    .col-md-6
+      = f.input :saturday_start
+    .col-md-6
+      = f.input :saturday_end
+  .row
+    .col-md-6
+      = f.input :sunday_start
+    .col-md-6
+      = f.input :sunday_end
+
+  = link_to_remove_association "remove aula", f, class: 'btn btn-small btn-danger'
+  %hr

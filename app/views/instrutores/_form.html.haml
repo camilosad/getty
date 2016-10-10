@@ -1,9 +1,19 @@
-= simple_form_for @instrutor, :html => { :class => 'form-horizontal' } do |f|
+= simple_form_for @instrutor do |f|
   = f.input :nome
   = f.error_span :nome
   = f.input :email
   = f.error_span :email
   = f.input :profissao
   = f.error_span :profissao
+  %hr
+
+  %h3 Aulas
+  #aulas
+    = f.simple_fields_for :aulas do |aula|
+      = render 'aula_fields', f: aula
+    .links
+      = link_to_add_association 'add aula', f, :aulas, class: 'btn btn-default'
+
+  %hr
   = f.button :submit, :class => 'btn-primary'
   = link_to t('.cancel', :default => t("helpers.links.cancel")), instrutores_path, :class => 'btn btn-default'

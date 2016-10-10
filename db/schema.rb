@@ -10,10 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161008205900) do
+ActiveRecord::Schema.define(version: 20161010143614) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "aulas", force: :cascade do |t|
+    t.integer  "semana"
+    t.json     "monday"
+    t.json     "tuesday"
+    t.json     "wednesday"
+    t.json     "thursday"
+    t.json     "friday"
+    t.json     "saturday"
+    t.json     "sunday"
+    t.boolean  "dinamica"
+    t.integer  "instrutor_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["instrutor_id"], name: "index_aulas_on_instrutor_id", using: :btree
+  end
 
   create_table "instrutores", force: :cascade do |t|
     t.string   "nome"
@@ -23,4 +39,5 @@ ActiveRecord::Schema.define(version: 20161008205900) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "aulas", "instrutores"
 end

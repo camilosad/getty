@@ -8,4 +8,9 @@ RSpec.describe Instrutor, type: :model do
     it { should validate_presence_of(:profissao) }
   end
 
+  describe "relationships" do
+    it { should have_many(:aulas) }
+    it { should accept_nested_attributes_for(:aulas)}
+  end
+
 end
