@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :aula do
-    semana 1
+    semana Date.new
     dinamica false
     monday = {monday_start: "10:00", monday_end: "12:00"}
     tuesday = {tuesday_start: "10:00", tuesday_end: "12:00"}

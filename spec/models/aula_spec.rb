@@ -43,4 +43,11 @@ RSpec.describe Aula, type: :model do
       expect(aula).to respond_to(:sunday_end)
     end
   end
+
+  describe "instance methods" do
+    let(:aula) { build(:aula) }
+    it "#numero_semana" do
+      expect(aula.numero_semana).to eq 1
+    end
+  end
 end

@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20161010143614) do
   enable_extension "plpgsql"
 
   create_table "aulas", force: :cascade do |t|
-    t.integer  "semana"
+    t.date     "semana"
     t.json     "monday"
     t.json     "tuesday"
     t.json     "wednesday"

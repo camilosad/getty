@@ -8,4 +8,11 @@ class Aula < ApplicationRecord
   store_accessor :friday, :friday_start, :friday_end
   store_accessor :saturday, :saturday_start, :saturday_end
   store_accessor :sunday, :sunday_start, :sunday_end
+
+  extend HashMethods
+  days_methods :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday
+
+  def numero_semana
+    semana.cweek if semana.present?
+  end
 end
