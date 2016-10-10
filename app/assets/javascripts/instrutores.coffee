@@ -27,8 +27,7 @@ $ ->
       $(week).hide()
       $(count).show()
 
-  $('.datetimepicker').datetimepicker();
-
+  # repeating behavior inside nested forms
   $('#aulas').on 'cocoon:after-insert', ->
     $(".nested-fields").each (index, element) ->
       dinamica = $(element).find("input[id$='dinamica']")
@@ -52,5 +51,3 @@ $ ->
       else
         $(week).hide()
         $(count).show()
-
-    $('.datepicker').datepicker()
