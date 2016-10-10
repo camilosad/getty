@@ -1,6 +1,7 @@
 .nested-fields
   = f.input :dinamica, as: :boolean
-  / = f.input :semana, as: :date_picker
+  .week
+    = f.input :semana, as: :date_picker
   .row
     .col-md-6
       = f.input :monday_start
