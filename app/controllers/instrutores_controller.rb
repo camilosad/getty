@@ -70,10 +70,11 @@ class InstrutoresController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def instrutor_params
       params.require(:instrutor).permit(:nome, :email, :profissao,
-        aulas_attributes: [:id, :dinamica, :semana, :monday_start, :monday_end,
-          :tuesday_start, :tuesday_end, :wednesday_start, :wednesday_end,
-          :thursday_start, :thursday_end, :friday_start, :friday_end,
-          :saturday_start, :saturday_end, :sunday_start, :sunday_end, :_destroy]
+        aulas_attributes: [:id, :dinamica, :semana, :quantidade_semanas,
+          :monday_start, :monday_end, :tuesday_start, :tuesday_end,
+          :wednesday_start, :wednesday_end, :thursday_start, :thursday_end,
+          :friday_start, :friday_end, :saturday_start, :saturday_end,
+          :sunday_start, :sunday_end, :_destroy]
       )
     end
 end

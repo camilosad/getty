@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161010143614) do
+ActiveRecord::Schema.define(version: 20161010183357) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,9 +26,19 @@ ActiveRecord::Schema.define(version: 20161010143614) do
     t.json     "sunday"
     t.boolean  "dinamica"
     t.integer  "instrutor_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "quantidade_semanas"
     t.index ["instrutor_id"], name: "index_aulas_on_instrutor_id", using: :btree
+  end
+
+  create_table "instancia_aulas", force: :cascade do |t|
+    t.datetime "inicio"
+    t.datetime "fim"
+    t.integer  "aula_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["aula_id"], name: "index_instancia_aulas_on_aula_id", using: :btree
   end
 
   create_table "instrutores", force: :cascade do |t|
@@ -40,4 +50,5 @@ ActiveRecord::Schema.define(version: 20161010143614) do
   end
 
   add_foreign_key "aulas", "instrutores"
+  add_foreign_key "instancia_aulas", "aulas"
 end
