@@ -102,7 +102,7 @@ RSpec.describe InstrutoresController, type: :controller do
 
       it "redirects to the created instrutor" do
         post :create, params: {instrutor: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(Instrutor.last)
+        expect(response).to redirect_to(instrutores_path)
       end
     end
 
@@ -139,7 +139,7 @@ RSpec.describe InstrutoresController, type: :controller do
       it "redirects to the instrutor" do
         instrutor = Instrutor.create! valid_attributes
         put :update, params: {id: instrutor.to_param, instrutor: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(instrutor)
+        expect(response).to redirect_to(instrutores_path)
       end
     end
 

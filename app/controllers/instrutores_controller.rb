@@ -35,7 +35,7 @@ class InstrutoresController < ApplicationController
 
     respond_to do |format|
       if @instrutor.save
-        format.html { redirect_to @instrutor, notice: 'Instrutor was successfully created.' }
+        format.html { redirect_to instrutores_path, notice: 'Instrutor was successfully created.' }
         format.json { render :show, status: :created, location: @instrutor }
       else
         format.html { render :new }
@@ -49,7 +49,7 @@ class InstrutoresController < ApplicationController
   def update
     respond_to do |format|
       if @instrutor.update(instrutor_params)
-        format.html { redirect_to @instrutor, notice: 'Instrutor was successfully updated.' }
+        format.html { redirect_to instrutores_path, notice: 'Instrutor was successfully updated.' }
         format.json { render :show, status: :ok, location: @instrutor }
       else
         format.html { render :edit }
