@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$ ->
+ready = ->
 
   # mask date fields
   $(".date-masked").inputmask("99/99/9999")
@@ -65,3 +65,6 @@ $ ->
       else
         $(week).hide()
         $(count).show()
+
+$(document).ready(ready)
+$(document).on('turbolinks:load', ready)
