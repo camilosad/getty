@@ -5,14 +5,15 @@
   = f.error_span :email
   = f.input :profissao
   = f.error_span :profissao
-  %hr
 
-  %h3 Aulas
-  #aulas
-    = f.simple_fields_for :aulas do |aula|
-      = render 'aula_fields', f: aula
-    .links
-      = link_to_add_association 'add aula', f, :aulas, class: 'btn btn-default'
+  - if @instrutor.persisted?
+    %hr
+    %h3 Aulas
+    #aulas
+      = f.simple_fields_for :aulas do |aula|
+        = render 'aula_fields', f: aula
+      .links
+        = link_to_add_association 'add aula', f, :aulas, class: 'btn btn-default'
 
   %hr
   = f.button :submit, :class => 'btn-primary'
