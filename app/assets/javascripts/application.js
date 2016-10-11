@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require inputmask
+//= require jquery.inputmask
 //= require twitter/bootstrap
 //= require cocoon
 //= require moment

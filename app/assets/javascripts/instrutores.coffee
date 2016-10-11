@@ -3,6 +3,13 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
+
+  # mask date fields
+  $(".date-masked").inputmask("99/99/9999")
+
+  # mask time fields
+  $(".time-masked").inputmask("99:99")
+
   $(".nested-fields").each (index, element) ->
     dinamica = $(element).find("input[id$='dinamica']")
     week = $(element).find('.week')
@@ -28,7 +35,14 @@ $ ->
       $(count).show()
 
   # repeating behavior inside nested forms
+
   $('#aulas').on 'cocoon:after-insert', ->
+    # mask date fields
+    $(".date-masked").inputmask("99/99/9999")
+
+    # mask time fields
+    $(".time-masked").inputmask("99:99")
+
     $(".nested-fields").each (index, element) ->
       dinamica = $(element).find("input[id$='dinamica']")
       week = $(element).find('.week')

@@ -1,44 +1,44 @@
 .nested-fields
   = f.input :dinamica, as: :boolean
   .week
-    = f.input :semana, as: :date_picker
+    = f.input :semana, as: :date_picker, placeholder: '__/__/____', input_html: {class: 'date-masked'}
   .count
     = f.input :quantidade_semanas
   .row
     .col-md-6
-      = f.input :monday_start
+      = f.input :monday_start, placeholder: '__:__', input_html: {class: 'time-masked'}
     .col-md-6
-      = f.input :monday_end
+      = f.input :monday_end, placeholder: '__:__', input_html: {class: 'time-masked'}
   .row
     .col-md-6
-      = f.input :tuesday_start
+      = f.input :tuesday_start, placeholder: '__:__', input_html: {class: 'time-masked'}
     .col-md-6
-      = f.input :tuesday_end
+      = f.input :tuesday_end, placeholder: '__:__', input_html: {class: 'time-masked'}
   .row
     .col-md-6
-      = f.input :wednesday_start
+      = f.input :wednesday_start, placeholder: '__:__', input_html: {class: 'time-masked'}
     .col-md-6
-      = f.input :wednesday_end
+      = f.input :wednesday_end, placeholder: '__:__', input_html: {class: 'time-masked'}
   .row
     .col-md-6
-      = f.input :thursday_start
+      = f.input :thursday_start, placeholder: '__:__', input_html: {class: 'time-masked'}
     .col-md-6
-      = f.input :thursday_end
+      = f.input :thursday_end, placeholder: '__:__', input_html: {class: 'time-masked'}
   .row
     .col-md-6
-      = f.input :friday_start
+      = f.input :friday_start, placeholder: '__:__', input_html: {class: 'time-masked'}
     .col-md-6
-      = f.input :friday_end
+      = f.input :friday_end, placeholder: '__:__', input_html: {class: 'time-masked'}
   .row
     .col-md-6
-      = f.input :saturday_start
+      = f.input :saturday_start, placeholder: '__:__', input_html: {class: 'time-masked'}
     .col-md-6
-      = f.input :saturday_end
+      = f.input :saturday_end, placeholder: '__:__', input_html: {class: 'time-masked'}
   .row
     .col-md-6
-      = f.input :sunday_start
+      = f.input :sunday_start, placeholder: '__:__', input_html: {class: 'time-masked'}
     .col-md-6
-      = f.input :sunday_end
+      = f.input :sunday_end, placeholder: '__:__', input_html: {class: 'time-masked'}
 
   = link_to_remove_association "remove aula", f, class: 'btn btn-small btn-danger'
   %hr
