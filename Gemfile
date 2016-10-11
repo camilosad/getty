@@ -36,6 +36,7 @@ group :test do
   gem 'simplecov', :require => false
   gem 'rspec-rails', '~> 3.5'
   gem 'capybara'
+  gem 'rails-controller-testing', :git => 'git://github.com/rails/rails-controller-testing.git'
 end
 
 group :development, :test do

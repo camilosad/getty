@@ -9,7 +9,8 @@ RSpec.describe Instrutor, type: :model do
   end
 
   describe "relationships" do
-    it { should have_many(:aulas) }
+    it { should have_many(:aulas).dependent(:destroy) }
+    it { should have_many(:instancia_aulas).through(:aulas) }
     it { should accept_nested_attributes_for(:aulas)}
   end
 

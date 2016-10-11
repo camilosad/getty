@@ -23,13 +23,8 @@ RSpec.describe InstrutoresController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # Instrutor. As you add validations to Instrutor, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
-
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
+  let(:valid_attributes) { build(:instrutor).attributes }
+  let(:invalid_attributes) { build(:invalid_instrutor).attributes }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -49,6 +44,30 @@ RSpec.describe InstrutoresController, type: :controller do
       instrutor = Instrutor.create! valid_attributes
       get :show, params: {id: instrutor.to_param}, session: valid_session
       expect(assigns(:instrutor)).to eq(instrutor)
+    end
+
+    context "endpoint" do
+      it "returns data of a single instrutor" do
+        instrutor = Instrutor.create! valid_attributes
+        get :show, params: {id: instrutor.to_param}, format: :json, session: valid_session
+        parsed_response = JSON.parse(response.body)
+        expect(parsed_response).to_not be_nil
+      end
+
+      it "returns an error if the instrutor does not exist" do
+        get :show, params: {id: 10}, format: :json, session: valid_session
+        parsed_response = JSON.parse(response.body)
+        expect(parsed_response['error']).to eq("instrutor does not exist")
+        expect(response).to be_not_found
+      end
+
+      it "includes instrutor's aulas" do
+        instrutor = Instrutor.create! valid_attributes
+        aula = create(:aula, instrutor: instrutor)
+        get :show, params: {id: instrutor.to_param}, format: :json, session: valid_session
+        parsed_response = JSON.parse(response.body)
+        expect(parsed_response['aulas']).to_not be_empty
+      end
     end
   end
 
@@ -102,15 +121,13 @@ RSpec.describe InstrutoresController, type: :controller do
 
   describe "PUT #update" do
     context "with valid params" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
+      let(:new_attributes) { build(:instrutor) }
 
       it "updates the requested instrutor" do
         instrutor = Instrutor.create! valid_attributes
-        put :update, params: {id: instrutor.to_param, instrutor: new_attributes}, session: valid_session
+        put :update, params: {id: instrutor.to_param, instrutor: new_attributes.attributes}, session: valid_session
         instrutor.reload
-        skip("Add assertions for updated state")
+        expect(assigns(:instrutor)).to eq(instrutor)
       end
 
       it "assigns the requested instrutor as @instrutor" do

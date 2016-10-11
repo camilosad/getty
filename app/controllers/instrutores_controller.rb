@@ -1,5 +1,5 @@
 class InstrutoresController < ApplicationController
-  before_action :set_instrutor, only: [:show, :edit, :update, :destroy]
+  before_action :set_instrutor, only: [:edit, :update, :destroy]
 
   # GET /instrutores
   # GET /instrutores.json
@@ -10,6 +10,13 @@ class InstrutoresController < ApplicationController
   # GET /instrutores/1
   # GET /instrutores/1.json
   def show
+    begin
+      set_instrutor
+    rescue ActiveRecord::RecordNotFound
+      render json: { error: "instrutor does not exist" }, status: :not_found
+    else
+      render json: @instrutor, include: :aulas
+    end
   end
 
   # GET /instrutores/new
